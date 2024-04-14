@@ -5,6 +5,8 @@ const upload = require("multer")({ limits: { fieldSize: 25 * 1024 * 1024 } });
 
 
 // POST /api/users
+router.get('/user', usersCtrl.getUser);
+
 router.post('/', usersCtrl.create);
 
 router.post('/login', usersCtrl.login);

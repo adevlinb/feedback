@@ -1,21 +1,33 @@
 import {createContext, useState, useRef, useEffect } from "react";
-import * as UsersService from "../utilities/users-service";
 import * as usersAPI from "../utilities/users-api";
 import * as socket from "../utilities/socket";
+import * as geolocationAPI from "../utilities/geolocation-api";
 
 const User = createContext();
 
 const UserContext = ({children}) => {
     const [user, setUser] = useState(null);
+    const [myChats, setMyChats] = useState([]);
+    const [selectedChat, setSelectedChat] = useState(null);
+    const [messages, setMessages] = useState([]);
+    const [chatUsers, setChatUsers] = useState({});
+    const [geolocation, setGeolocation] = useState({});
+
     // const location = useLocation(); -> find location package for react native
 
     useEffect(() => {
         async function getUser() {
             if (!user) {
-                const results = await UsersService.getUser();
+                const results = await usersAPI.getUser();
                 setUser(results);
-                console.log(user, "user")
+                console.log(results, "user")
             }
+            
+            console.log("user logged in, looking for location!")
+            const updatedLocation = geolocationAPI.geolocationSetup();
+            // console.log(updatedLocation, "up-lo");
+
+            
         }
         getUser();
     }, [user])
@@ -36,6 +48,8 @@ const UserContext = ({children}) => {
     //     socketConfig()
 
     // }, [selectedChat, location, user, userProfile, userRTCID, setMessages, setMyChats, setChatUsers, setSelectedChat]);
+
+
 
     return (
         <User.Provider value={{user , setUser }}>

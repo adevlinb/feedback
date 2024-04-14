@@ -1,33 +1,46 @@
 {
-  "expo": {
-    "name": "donations_app",
-    "slug": "donations_app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSCameraUsageDescription": "This app uses the camera / media library to allow for uploading your profile picture."
-      }
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "as_if_app",
+		"slug": "as_if_app",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"plugins": [
+			[
+				"expo-location",
+				{
+					"locationAlwaysAndWhenInUsePermission": "Allow Feedback to use your location.",
+					"locationAlwaysPermission": "Allow Feedback to use your location.",
+					"locationWhenInUsePermission": "Allow Feedback to use your location."
+				}
+			]
+		],
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": [
+			"**/*"
+		],
+		"ios": {
+			"supportsTablet": true,
+			"infoPlist": {
+				"NSCameraUsageDescription": "This app uses the camera / media library to allow for uploading your profile picture.",
+				"NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Feedback to use your location",
+				"NSLocationAlwaysUsageDescription": "Allow Feedback to use your location",
+				"NSLocationWhenInUseUsageDescription": "Allow Feedback to use your location"
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			}
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		}
+	}
 }
