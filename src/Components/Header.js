@@ -6,7 +6,7 @@ export default function Header({ navigation }) {
   return (
     <View style={styles.header}>
         <Ionicons style={styles.iconPlacement} onPress={() => {navigation.toggleDrawer()}} name="menu" size={24} color="black" />
-        <Text>Donations.com</Text>
+        <Text>Feedback</Text>
         <Image style={styles.logoPlacement} source={smallLogo} />
     </View>
   )

@@ -18,7 +18,7 @@ export default function LoginScreen() {
         email: "",
         password: ""
     }
-    
+
     const signUp = {
         email: "",
         firstName: "",
@@ -66,7 +66,8 @@ export default function LoginScreen() {
         <SafeAreaView>
             <View style={styles.mainView}>
                 {loginChoice !== "" ? <Pressable onPress={resetLoginChoice} style={styles.cancelButton}><Ionicons name="close-circle" size={24} color="black" /></Pressable> : ""}
-                <Image source={Logo} />
+                <Text>FEEDBACK</Text>
+
                 <View style={styles.mainInputContainer}>
                     {loginChoice !== "login" && loginChoice !== "signup" ?
                         <>
