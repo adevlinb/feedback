@@ -5,6 +5,7 @@ function chat(io) {
 	io.on('connection', (socket) => {
 
 		socket.on("set_user_online", (user) => {
+			console.log("setting user online!!", user)
 			users[user._id] = user;
 			io.sockets.emit("update_users", users);
 		});

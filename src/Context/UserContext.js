@@ -13,21 +13,22 @@ const UserContext = ({children}) => {
     const [chatUsers, setChatUsers] = useState({});
     const [geolocation, setGeolocation] = useState({});
 
-    // const location = useLocation(); -> find location package for react native
 
     useEffect(() => {
         async function getUser() {
             if (!user) {
                 const results = await usersAPI.getUser();
                 setUser(results);
-                console.log(results, "user")
             }
             
-            console.log("user logged in, looking for location!")
-            const updatedLocation = geolocationAPI.geolocationSetup();
-            // console.log(updatedLocation, "up-lo");
-
-            
+            const updatedLocation = await geolocationAPI.geolocationSetup();
+            setGeolocation(updatedLocation);
+            socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
+            socket.socket.on("connection", socket.setUserOnline(selectedChat));
+            // if (location.pathname !== "/home/messages" && location.pathname !== "/book/:bookId") {
+            //     setSelectedChat(null);
+            //     socket.leaveRoom();
+            // }
         }
         getUser();
     }, [user])
@@ -49,10 +50,8 @@ const UserContext = ({children}) => {
 
     // }, [selectedChat, location, user, userProfile, userRTCID, setMessages, setMyChats, setChatUsers, setSelectedChat]);
 
-
-
     return (
-        <User.Provider value={{user , setUser }}>
+        <User.Provider value={{ user, setUser, myChats, setMyChats, selectedChat, setSelectedChat, messages, setMessages, chatUsers, setChatUsers }}>
             {children}
         </User.Provider>
     )

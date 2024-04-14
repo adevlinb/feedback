@@ -1,7 +1,7 @@
 import * as chatAPI from "./chat-api";
 import { io } from 'socket.io-client';
 //  "undefined" means the URL will be computed from the `window.location` object
-const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3000';
+const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3001';
 export const socket = io(URL);
 
 let user = null;
@@ -43,6 +43,7 @@ export function emitMessage(newMsg) {
 }
 
 export function setUserOnline(room) {
+    console.log("setting user online front end")
     const roomId = room ? room._id : null;
     socket.emit("set_user_online", { ...user, room: roomId });
 }
