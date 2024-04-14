@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { User } from '../Context/UserContext';
 
 // COMPONENTS
-import Header from '../Components/Header'
+import Header from '../Navigation/Header'
 import BottomNav from '../Navigation/BottomNav'
 import SettingsNav from '../Navigation/SettingsNav';
 import { UserInfo } from '../Components/UserInfo';

@@ -2,7 +2,7 @@
 import { StyleSheet, Text, SafeAreaView, View } from 'react-native'
 
 // COMPONENTS
-import Header from '../Components/Header';
+import Header from '../Navigation/Header';
 import BottomNav from '../Navigation/BottomNav';
 
 // APIS

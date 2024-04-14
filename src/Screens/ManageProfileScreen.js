@@ -5,7 +5,7 @@ import { User } from '../Context/UserContext';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 
 // COMPONENTS
-import Header from '../Components/Header'
+import Header from '../Navigation/Header'
 import BottomNav from '../Navigation/BottomNav'
 import { UserInfo, UserImagePicker } from '../Components/UserInfo';
 
