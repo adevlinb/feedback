@@ -16,6 +16,11 @@ import TermsOfUseScreen from '../Screens/TermsOfUse';
 import PrivacyScreen from '../Screens/Privacy';
 import HelpScreen from '../Screens/Help';
 import NotificationsSetScreen from '../Screens/NotificationsSetScreen';
+import GridScreen from "../Screens/Grid";
+import MessagesScreen from "../Screens/Chats";
+import AlbumsScreen from "../Screens/Albums";
+import FeedbackScreen from "../Screens/Feedback";
+
 
 // APIS
 
@@ -37,6 +42,10 @@ export default function StackNavigation() {
                 <Drawer.Screen name="Privacy" component={PrivacyScreen} options={{ headerShown: false, title: "Privacy" }}/>
                 <Drawer.Screen name="Help" component={HelpScreen} options={{ headerShown: false, title: "Help/FAQ" }}/>
                 <Drawer.Screen name="NotificationSet" component={NotificationsSetScreen} options={{ headerShown: false, title: "Notification Settings" }}/>
+                <Drawer.Screen name="Grid" component={GridScreen} options={{ headerShown: false, title: "Grid Screen" }}/>
+                <Drawer.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false, title: "Messages" }}/>
+                <Drawer.Screen name="Albums" component={AlbumsScreen} options={{ headerShown: false, title: "Albums Screen" }}/>
+                <Drawer.Screen name="Feedback" component={FeedbackScreen} options={{ headerShown: false, title: "Feedback" }}/>
             </Drawer.Navigator>}
 
             {!user && 

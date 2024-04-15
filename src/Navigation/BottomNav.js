@@ -4,10 +4,10 @@ import FooterIcon from "../../assets/logos/footerIcon.png";
 export default function BottomNav({ navigation }) {
     return (
         <View style={styles.bottomNav}>
-            <Pressable onPress={() => navigation.navigate("About")}><Text style={styles.footerText} >About</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("TermsOfUse")}><Text style={styles.footerText} >Terms of Use</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Privacy")}><Text style={styles.footerText} >Privacy</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Help")}><Text style={styles.footerText} >Help/FAQ</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Grid")}><Text style={styles.footerText} >Grid</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Messages")}><Text style={styles.footerText} >Messages</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Albums")}><Text style={styles.footerText} >Albums</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Feedback")}><Text style={styles.footerText} >Feedback</Text></Pressable>
             <Image source={FooterIcon} />
         </View>
     )

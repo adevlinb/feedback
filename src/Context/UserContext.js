@@ -1,5 +1,6 @@
 import {createContext, useState, useRef, useEffect } from "react";
 import * as usersAPI from "../utilities/users-api";
+import * as chatAPI from "../utilities/chat-api";
 import * as socket from "../utilities/socket";
 import * as geolocationAPI from "../utilities/geolocation-api";
 
@@ -15,22 +16,33 @@ const UserContext = ({children}) => {
 
 
     useEffect(() => {
-        async function getUser() {
+        async function initialSignIn() {
             if (!user) {
-                const results = await usersAPI.getUser();
-                setUser(results);
+                const userData = await usersAPI.getUser();
+                setUser(userData);
             }
             
-            const updatedLocation = await geolocationAPI.geolocationSetup();
-            setGeolocation(updatedLocation);
-            socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
-            socket.socket.on("connection", socket.setUserOnline(selectedChat));
-            // if (location.pathname !== "/home/messages" && location.pathname !== "/book/:bookId") {
-            //     setSelectedChat(null);
-            //     socket.leaveRoom();
-            // }
         }
-        getUser();
+        initialSignIn();
+    }, [user])
+
+
+    useEffect(() => {
+        async function getUserData() {
+            if (user) {
+                const userChats = await chatAPI.getUserChats();
+                setMyChats(userChats);
+                const updatedLocation = await geolocationAPI.geolocationSetup();
+                setGeolocation(updatedLocation);
+                socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
+                socket.socket.on("connection", socket.setUserOnline(selectedChat));
+                // if (location.pathname !== "/home/messages" && location.pathname !== "/book/:bookId") {
+                //     setSelectedChat(null);
+                //     socket.leaveRoom();
+                // }
+            }
+        }
+        getUserData();
     }, [user])
 
     // useEffect(() => {

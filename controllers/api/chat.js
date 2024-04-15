@@ -50,7 +50,7 @@ async function getChatMessages(req, res) {
 
 async function getUserChats(req, res) {
     try {
-        const userChats = await Chat.find({"members": {$in: req.profile._id}}).populate("msgs", "isRead").sort({'lastMsg': "desc"});
+        const userChats = await Chat.find({"members": {$in: req.user._id}}).populate("msgs", "isRead").sort({'lastMsg': "desc"});
         res.status(200).json(userChats);
     } catch (err) {
         console.log(err, "err")

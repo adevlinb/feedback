@@ -11,21 +11,16 @@ let setChatUsers = null;
 
 // socket Config
 export function socketConfig(userPro, func1, func2, func3) {
-    // userInfo
-    user = {
-        _id: userPro._id,
-        pic: userPro.currProfilePic ? userPro.currProfilePic.url : null,
-        name: userPro.name,
-        socket: socket.id,
-        online: true,
-        room: null,
-    }
-
+    // add extra user info to user object
+    user = { ...userPro };
+    user.socket = socket.id;
+    user.online = true;
+    user.room = null;
+    
     // functions
     setMessages = func1;
     setMyChats = func2;
     setChatUsers = func3;
-
 }
 
 export function joinRoom(id) {
@@ -43,7 +38,6 @@ export function emitMessage(newMsg) {
 }
 
 export function setUserOnline(room) {
-    console.log("setting user online front end")
     const roomId = room ? room._id : null;
     socket.emit("set_user_online", { ...user, room: roomId });
 }

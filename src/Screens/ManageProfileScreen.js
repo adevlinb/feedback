@@ -1,6 +1,6 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView, Image, Pressable, TextInput, ScrollView } from 'react-native'
-import { useContext, useEffect, useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Pressable, TextInput, ScrollView } from 'react-native'
+import { useContext, useState } from 'react';
 import { User } from '../Context/UserContext';
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 
@@ -35,7 +35,6 @@ export default function ManageProfileScreen({ navigation }) {
     }
 
 	function checkChanges() {
-		console.log("checking changes")
 		if (parseInt(formData.phoneNumber) === parseInt(user.phoneNumber) && 
 			parseInt(formData.donationGoal) === parseInt(user.donationGoal) &&
 			image.uri === user.profilePic &&
@@ -47,8 +46,6 @@ export default function ManageProfileScreen({ navigation }) {
 		else return false
 		
 	}
-
-	console.log(user, "user check")
 
 	async function submitProfileUpdates() {
 
@@ -85,10 +82,6 @@ export default function ManageProfileScreen({ navigation }) {
 				<UserImagePicker image={image} setImage={setImage} hasGalleryPermission={hasGalleryPermission} setHasGalleryPermission={setHasGalleryPermission}/>
 				<View style={styles.statsContainer}>
 					<View style={{ flexDirection: "row", alignItems: "center"}}>
-						<Entypo name="star" size={24} color="#C13584" />
-						<Text style={{ marginLeft: 10 }}>{userDonations.length} Donations?</Text>
-					</View>
-					<View style={{ flexDirection: "row", alignItems: "center"}}>
 						<MaterialIcons name="verified-user" size={24} color="#C13584" />
 						<Text style={{ marginLeft: 10 }}>Verified?</Text>
 					</View>
@@ -108,20 +101,7 @@ export default function ManageProfileScreen({ navigation }) {
 						</View>
 						<Pressable onPress={() => setEditLastName(!editLastName)}><Text style={editLastName ? styles.cancel : styles.edit }>{editLastName ? "cancel" : "edit"}</Text></Pressable>
 					</View>	
-					<View style={styles.nextLayerContainer}>
-						<View style={editDonationGoal ? styles.inputContainerActive : styles.inputContainer}>
-							<Text style={styles.placeholderText}>Donation Goal</Text>
-							{editDonationGoal ? <TextInput value={formData.donationGoal} inputMode="decimal" placeholder="$0.00" onChangeText={(text) => handleChange(text, "donationGoal")}></TextInput> : <Text>{formData.donationGoal}</Text>}
-						</View>
-						<Pressable onPress={() => setEditDonationGoal(!editDonationGoal)}><Text style={editDonationGoal ? styles.cancel : styles.edit }>{editDonationGoal ? "cancel" : "edit"}</Text></Pressable>
-					</View>
-					<View style={styles.nextLayerContainer}>
-						<View style={editPhoneNumber ? styles.inputContainerActive : styles.inputContainer}>
-							<Text style={styles.placeholderText}>Phone Number</Text>
-							{editPhoneNumber ? <TextInput maxLength={14} value={formatPhoneNumber(formData.phoneNumber)} style={styles.textInputs} placeholder='(000) 000-0000' inputMode='tel' onChangeText={(text) => handleChange(text, "phoneNumber")}></TextInput> : <Text style={styles.textInputs}>{formData.phoneNumber}</Text>}
-						</View>
-						<Pressable onPress={() => setEditPhoneNumber(!editPhoneNumber)}><Text style={editPhoneNumber ? styles.cancel : styles.edit }>{editPhoneNumber ? "cancel" : "edit"}</Text></Pressable>
-					</View>
+
 				</View>
 				<View style={styles.submitContainer}>
 					<Pressable disabled={checkChanges()} style={checkChanges() ? styles.submitButtonDisabled : styles.submitButton} onPress={submitProfileUpdates}><Text style={{color: "white"}}>Save Changes</Text></Pressable>

@@ -1,10 +1,8 @@
 // IMPORTS
-import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
-import changeAccountIcon from "../../assets/logos/changeAccountIcon.png"
-import { Entypo } from '@expo/vector-icons';
 
 // COMPONENTS
 import { UserInfo } from '../Components/UserInfo';
@@ -20,14 +18,15 @@ export default function CustomDrawerItems(props) {
         setUser(null);
     }
 
-    function changeAccount() {
-
-    }
-
     return (
         <DrawerContentScrollView style={styles.mainContainer} contentContainerStyle={styles.contentMainContainer} {...props}>
             <UserInfo />
             <DrawerItem label="Home" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Home")}/>
+            <DrawerItem label="About" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("About")}/>
+            <DrawerItem label="Settings" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Settings")}/>
+            <DrawerItem label="TermsOfUse" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("TermsOfUse")}/>
+            <DrawerItem label="Privacy" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Privacy")}/>
+            <DrawerItem label="Help" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Help")}/>
             <DrawerItem label="ManageProfile" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("ManageProfile")}/>
             <View style={styles.bottomContainer}>
                 <Pressable onPress={logout} style={styles.logoutButton}><Text style={styles.logoutButtonText}>Logout</Text></Pressable>

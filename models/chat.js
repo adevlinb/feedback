@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 const ChatMessage = require("./chatMessage");
 
 const chatSchema = new Schema({
-    members: [{ type: Schema.Types.ObjectId, ref: 'Profile' }],
-    currChatPic: { type: Schema.Types.ObjectId, ref: 'Photo', default: null, autopopulate: true },
-    chatPics: [{ type: Schema.Types.ObjectId, ref: 'Photo', autopopulate: true }],
-    chatName: String,
+    members: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     lastMsg: {type: Date, default: Date.now()},
     msgs: [{ type: Schema.Types.ObjectId, ref: 'ChatMessage' }]
 }, {

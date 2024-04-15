@@ -1,6 +1,6 @@
 // IMPORTS
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { AntDesign, Ionicons, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 // COMPONENTS
 

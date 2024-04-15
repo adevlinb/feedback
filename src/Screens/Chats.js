@@ -8,18 +8,20 @@ import BottomNav from '../Navigation/BottomNav'
 // APIS
 
 export default function About({ navigation }) {
+
+    
+
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>About Screen</Text>
+                    <Text>Chat Screen</Text>
                 </View>
-            </View>
-            <View >
-                <Text>Feedback is meant to be the gay men's app that finally functions properly and doesn't overcharge for our services.</Text>
-                <Text>We will continuously work to maintain our MVP (minimal viable product) and add new features over time.</Text>
-                <Text>That being said: please leave us feedback with items we can add, adjust, fix, or be better about so we can continue to improve.</Text>
+                <View style={styles.refresh}>
+                    <Text>Chat Body = all chats (click on a chat to see msgs)</Text>
+                </View>
             </View>
             <BottomNav navigation={navigation}/>
         </SafeAreaView>
