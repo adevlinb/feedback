@@ -10,9 +10,10 @@ let setMyChats = null;
 let setChatUsers = null;
 
 // socket Config
-export function socketConfig(userPro, func1, func2, func3) {
+export function socketConfig(userPro, geolocation, func1, func2, func3) {
     // add extra user info to user object
     user = { ...userPro };
+    user.location = geolocation;
     user.socket = socket.id;
     user.online = true;
     user.room = null;
@@ -46,23 +47,12 @@ export function newChat(newChat) {
     socket.emit("new_chat", newChat)
 }
 
-export function joinBookChat(bookId, rtcId) {
-    user.room = bookId;
-    socket.emit("join_book_chat", bookId, user);
-}
-
-export function leaveBookChat(bookId) {
-    user.room = null;
-    socket.emit("leave_book_chat", bookId, user);
-}
-
 export function userLogout() {
     socket.emit("set_user_offline", user);
 }
 
-socket.on('disconnect', function () {
-    socket.emit("set_user_offline", user);
-});
+
+/***************  EVENT LISTENERS *****************/
 
 socket.on("update_users", function (updatedUsers) {
     if (user) setChatUsers(updatedUsers)
@@ -78,9 +68,13 @@ socket.on("update_chats", async function () {
     setMyChats(await chatAPI.getUserChats());
 });
 
-socket.on("connect_error", (err) => {
+socket.on("connect_error", function (err) {
     console.log(`connect_error due to ${err.message}`);
     socket.emit("socket reset server");  
+});
+
+socket.on('disconnect', function () {
+    socket.emit("set_user_offline", user);
 });
 
 socket.on("disconnection", function () {
