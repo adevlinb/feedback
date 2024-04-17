@@ -16,7 +16,7 @@ export function socketConfig(userPro, func1, func2, func3) {
     user.socket = socket.id;
     user.online = true;
     user.room = null;
-    
+
     // functions
     setMessages = func1;
     setMyChats = func2;
@@ -78,4 +78,12 @@ socket.on("update_chats", async function () {
     setMyChats(await chatAPI.getUserChats());
 });
 
+socket.on("connect_error", (err) => {
+    console.log(`connect_error due to ${err.message}`);
+    socket.emit("socket reset server");  
+});
+
+socket.on("disconnection", function () {
+    socket.emit("set_user_offline", user);
+})
 

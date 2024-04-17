@@ -21,7 +21,14 @@ app.use(session({
 
 // SOCKET.IO
 const http = require('http').Server(app);
-const io = socketio(http);
+const io = socketio(http, {
+	connectionStateRecovery: {
+	  // the backup duration of the sessions and the packets
+	  maxDisconnectionDuration: 2 * 60 * 1000,
+	  // whether to skip middlewares upon successful recovery
+	  skipMiddlewares: true,
+	}
+  });
 chat(io);
 
 

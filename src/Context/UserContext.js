@@ -1,4 +1,4 @@
-import {createContext, useState, useRef, useEffect } from "react";
+import {createContext, useState, useEffect } from "react";
 import * as usersAPI from "../utilities/users-api";
 import * as chatAPI from "../utilities/chat-api";
 import * as socket from "../utilities/socket";
@@ -13,7 +13,20 @@ const UserContext = ({children}) => {
     const [messages, setMessages] = useState([]);
     const [chatUsers, setChatUsers] = useState({});
     const [geolocation, setGeolocation] = useState({});
+    const [socketConnection, setSocketConnection] = useState(null);
 
+    // useEffect(() => {
+    //     function resetSocket() {
+    //         console.log("resetSocket func 21", socketConnection.recovered)
+    //         if (user && !socketConnection) {
+    //             console.log("resetSocket func 23 and")
+    //             socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
+    //             socket.socket.on("connection", socket.setUserOnline(selectedChat));
+    //             setSocketConnection(socket.socket);
+    //         }
+    //     }
+    //     resetSocket()
+    // }, [user, socketConnection])
 
     useEffect(() => {
         async function initialSignIn() {
@@ -36,14 +49,16 @@ const UserContext = ({children}) => {
                 setGeolocation(updatedLocation);
                 socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
                 socket.socket.on("connection", socket.setUserOnline(selectedChat));
-                // if (location.pathname !== "/home/messages" && location.pathname !== "/book/:bookId") {
-                //     setSelectedChat(null);
-                //     socket.leaveRoom();
-                // }
+                setSocketConnection(socket.socket);
             }
         }
         getUserData();
     }, [user])
+
+    if (socketConnection) socketConnection.on("socket reset client", () => {
+        socket.socketConfig(user, setMessages, setMyChats, setChatUsers)
+        socket.socket.on("connection", socket.setUserOnline(selectedChat));
+    })
 
     // useEffect(() => {
 

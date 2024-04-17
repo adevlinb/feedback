@@ -9,13 +9,16 @@ import { UserInfo } from '../Components/UserInfo';
 
 // APIS
 import * as usersService from "../utilities/users-service";
+import * as socket from "../utilities/socket";
 
 export default function CustomDrawerItems(props) {
     const { user, setUser } = useContext(User);
 
+
     function logout() {
         usersService.logOut();
         setUser(null);
+        socket.userLogout();
     }
 
     return (
