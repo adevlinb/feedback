@@ -8,6 +8,7 @@ function chat(io) {
 		})
 
 		socket.on("set_user_online", (user) => {
+			console.log(user, "user in set user online func")
 			users[user._id] = user;
 			io.sockets.emit("update_users", users);
 		});

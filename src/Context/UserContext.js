@@ -12,7 +12,7 @@ const UserContext = ({ children }) => {
     const [selectedChat, setSelectedChat] = useState(null);
     const [messages, setMessages] = useState([]);
     const [chatUsers, setChatUsers] = useState({});
-    const [geolocation, setGeolocation] = useState({});
+    const [geolocation, setGeolocation] = useState(null);
     const [socketConnection, setSocketConnection] = useState(null);
 
     
@@ -35,17 +35,19 @@ const UserContext = ({ children }) => {
             socket.socket.on("connection", socket.setUserOnline(selectedChat));
             setSocketConnection(socket.socket);
         }
-        if (user) socketConfig()
+        if (user && geolocation) socketConfig()
     }, [selectedChat, geolocation, user, setMessages, setMyChats, setChatUsers, setSelectedChat]);
 
 
     // socket recovery if error / connection dropped
-    if (socketConnection && user) {
+    if (user && geolocation && socketConnection) {
         socketConnection.on("socket reset client", () => {
         socket.socketConfig(user, geolocation, setMessages, setMyChats, setChatUsers)
         socket.socket.on("connection", socket.setUserOnline(selectedChat));
         })
     }
+
+
     return (
         <User.Provider value={{ user, setUser, myChats, setMyChats, selectedChat, setSelectedChat, messages, setMessages, chatUsers, setChatUsers }}>
             {children}

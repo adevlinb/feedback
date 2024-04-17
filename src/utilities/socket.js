@@ -11,9 +11,11 @@ let setChatUsers = null;
 
 // socket Config
 export function socketConfig(userPro, geolocation, func1, func2, func3) {
+    console.log(geolocation)
+
     // add extra user info to user object
     user = { ...userPro };
-    user.location = geolocation;
+    user.location = { lat: geolocation.coords.latitude, lon: geolocation.coords.longitude };
     user.socket = socket.id;
     user.online = true;
     user.room = null;
