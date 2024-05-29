@@ -18,8 +18,6 @@ export default function DisplayMessages() {
     const [newMessage, setNewMessage] = useState("");
     const lastMessageRef = useRef(null);
 
-    console.log(selectedChat, messages, "messages component")
-
     useEffect(() => {
         if (!selectedChat) return;
         async function getMessagesAndSetMembers() {

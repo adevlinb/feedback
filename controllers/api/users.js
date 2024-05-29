@@ -23,8 +23,7 @@ async function getUser(req, res) {
 async function create(req, res) {
     try {
         const user = await User.create(req.body);
-        const token = createJWT(user);
-        res.status(200).json(token);
+        res.status(200).json(createJWT(user));
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -34,7 +33,6 @@ async function create(req, res) {
 async function login(req, res) {
     try {
 
-        console.log("login")
         const user = await User.findOne({ email: req.body.email });
         if (!user) throw new Error();
         const match = await bcrypt.compare(req.body.password, user.password);
@@ -61,7 +59,7 @@ async function updateProfile(req, res) {
             updatedUser[key] = value
         }
         updatedUser = await updatedUser.save();
-        return res.json(updatedUser);
+        return res.json(createJWT(updatedUser));
     } catch (err) {
         console.log(err)
         res.status(400).json(err);

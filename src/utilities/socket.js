@@ -11,7 +11,7 @@ let setChatUsers = null;
 
 // socket Config
 export function socketConfig(userPro, geolocation, func1, func2, func3) {
-    console.log(geolocation)
+    console.log(geolocation, "geo data")
 
     // add extra user info to user object
     user = { ...userPro };

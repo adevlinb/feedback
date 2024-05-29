@@ -48,8 +48,6 @@ export default function ManageProfileScreen({ navigation }) {
 	}
 
 	async function submitProfileUpdates() {
-
-		console.log("submit updated", user)
         let photoURL = null;
 
         if (image.uri !== user.profilePic) {
@@ -68,8 +66,7 @@ export default function ManageProfileScreen({ navigation }) {
         // UPDATE PROFILE
         if (parseInt(formData.phoneNumber) !== parseInt(user.phoneNumber)) formData.phoneNumber = parseInt(formData.phoneNumber)
         if (parseInt(formData.donationGoal) !== parseInt(user.gonationGoal)) formData.donationGoal = parseInt(formData.donationGoal)
-        const updatedProfile = await usersAPI.updateProfile(formData);
-		const updatedUser = usersService.updateUserStorage(updatedProfile);
+		const updatedUser = usersService.updateUser(formData);
         setUser(updatedUser);
 		setFormData(updatedUser)
 		return checkChanges();

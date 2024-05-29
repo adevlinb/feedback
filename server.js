@@ -12,6 +12,7 @@ require('./config/database');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
+
 app.use(require('./config/checkToken'));
 app.use(session({
 	secret: process.env.SECRET,

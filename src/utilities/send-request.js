@@ -1,4 +1,16 @@
-import { getToken } from './users-service';
+import * as SecureStore from 'expo-secure-store';
+import { decode as atob } from 'base-64'
+
+async function getToken() {
+	const token = await SecureStore.getItemAsync('token');
+	if (!token) return null;
+	const payload = JSON.parse(atob(token.split('.')[1]));
+	if (payload.exp < Date.now() / 1000) {
+		await SecureStore.deleteItemAsync('token');
+		return null;
+	}
+	return token;
+}
 
 export default async function sendRequest(url, method = 'GET', payload = null, payloadIsFormData = null) {
 	const options = { method };
