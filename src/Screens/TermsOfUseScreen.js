@@ -7,7 +7,7 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function TermsOfUse({ navigation }) {
+export default function TermsOfUseScreen({ navigation }) {
 	return (
 		<SafeAreaView style={styles.mainContainer}>
 			<Header navigation={navigation} />

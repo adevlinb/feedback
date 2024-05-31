@@ -1,5 +1,4 @@
-import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
-import FooterIcon from "../../assets/logos/footerIcon.png";
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function BottomNav({ navigation }) {
     return (

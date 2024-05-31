@@ -21,7 +21,6 @@ const UserContext = ({ children }) => {
     
     useEffect(() => {
         async function initialSignIn() {
-            console.log("this should be called once")
             const userData = await usersAPI.getUser();
             setUser(userData);
             if (userData) {

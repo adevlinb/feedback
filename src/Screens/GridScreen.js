@@ -7,20 +7,16 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function About({ navigation }) {
-
-    
-
-
+export default function GridScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Chat Screen</Text>
+                    <Text>Grid Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Chat Body</Text>
+                    <Text>Grid</Text>
                 </View>
             </View>
             <BottomNav navigation={navigation}/>

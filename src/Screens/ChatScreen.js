@@ -1,25 +1,28 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { useContext } from 'react';
+import { User } from '../Context/UserContext';
 
 // COMPONENTS
-import Header from '../Navigation/Header'
-import BottomNav from '../Navigation/BottomNav'
+import Header from '../Navigation/Header';
+import BottomNav from '../Navigation/BottomNav';
 
 // APIS
 
-export default function About({ navigation }) {
+export default function ChatScreen({ navigation }) {
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Bulletin Screen</Text>
+                    <Text>Chat Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Bulletin Screen</Text>
+                    <Text>Chat Body</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav navigation />
         </SafeAreaView>
     )
 }

@@ -8,7 +8,6 @@ import { User } from '../Context/UserContext';
 
 // APIS
 import * as usersService from "../utilities/users-service";
-import * as usersAPI from "../utilities/users-api";
 
 export default function LoginScreen() {
     const { user, setUser } = useContext(User);

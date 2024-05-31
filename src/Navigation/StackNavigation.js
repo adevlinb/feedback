@@ -11,15 +11,16 @@ import LoginScreen from '../Screens/LoginScreen';
 import HomeScreen from '../Screens/HomeScreen';
 import ManageProfileScreen from '../Screens/ManageProfileScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
-import AboutScreen from '../Screens/About';
-import TermsOfUseScreen from '../Screens/TermsOfUse';
-import PrivacyScreen from '../Screens/Privacy';
-import HelpScreen from '../Screens/Help';
+import AboutScreen from '../Screens/AboutScreen';
+import TermsOfUseScreen from '../Screens/TermsOfUseScreen';
+import PrivacyScreen from '../Screens/PrivacyScreen';
+import HelpScreen from '../Screens/HelpScreen';
 import NotificationsSetScreen from '../Screens/NotificationsSetScreen';
-import GridScreen from "../Screens/Grid";
-import MessagesScreen from "../Screens/Chats";
-import MapsScreen from "../Screens/Maps";
-import BulletinScreen from "../Screens/Bulletin";
+import GridScreen from "../Screens/GridScreen";
+import MessagesScreen from "../Screens/ChatScreen";
+import MapsScreen from "../Screens/MapScreen";
+import BulletinScreen from "../Screens/BulletinScreen";
+import ProfileDetailScreen from '../Screens/ProfileDetailScreen';
 
 
 // APIS
@@ -46,6 +47,7 @@ export default function StackNavigation() {
                 <Drawer.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false, title: "Messages" }}/>
                 <Drawer.Screen name="Maps" component={MapsScreen} options={{ headerShown: false, title: "Albums Screen" }}/>
                 <Drawer.Screen name="Bulletin" component={BulletinScreen} options={{ headerShown: false, title: "Bulletin" }}/>
+                <Drawer.Screen name="ProfileDetail" component={ProfileDetailScreen} options={{ headerShown: false, title: "Bulletin" }}/>
             </Drawer.Navigator>}
 
             {!user && 

@@ -7,17 +7,21 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function About({ navigation }) {
+export default function ProfileDetailScreen({ navigation }) {
+    // if "Day" -> return Day Profile
+    // if "Night" -> return Night Profile?
+
+    
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Maps Screen</Text>
+                    <Text>Profile Detail Screen</Text>
                 </View>
-                <View style={styles.refresh}>
-                    <Text>Maps Screen</Text>
-                </View>
+            </View>
+            <View >
+                <Text>Profile Detail</Text>
             </View>
             <BottomNav navigation={navigation}/>
         </SafeAreaView>
