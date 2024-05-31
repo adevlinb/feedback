@@ -1,5 +1,5 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 // COMPONENTS
 import Header from '../Navigation/Header'

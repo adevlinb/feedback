@@ -17,7 +17,8 @@ import PrivacyScreen from '../Screens/PrivacyScreen';
 import HelpScreen from '../Screens/HelpScreen';
 import NotificationsSetScreen from '../Screens/NotificationsSetScreen';
 import GridScreen from "../Screens/GridScreen";
-import MessagesScreen from "../Screens/ChatScreen";
+import AllChatsScreen from '../Screens/AllChatsScreen';
+import ChatDetailScreen from '../Screens/ChatDetailScreen';
 import MapsScreen from "../Screens/MapScreen";
 import BulletinScreen from "../Screens/BulletinScreen";
 import ProfileDetailScreen from '../Screens/ProfileDetailScreen';
@@ -44,10 +45,11 @@ export default function StackNavigation() {
                 <Drawer.Screen name="Help" component={HelpScreen} options={{ headerShown: false, title: "Help/FAQ" }}/>
                 <Drawer.Screen name="NotificationSet" component={NotificationsSetScreen} options={{ headerShown: false, title: "Notification Settings" }}/>
                 <Drawer.Screen name="Grid" component={GridScreen} options={{ headerShown: false, title: "Grid Screen" }}/>
-                <Drawer.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false, title: "Messages" }}/>
+                <Drawer.Screen name="AllChats" component={AllChatsScreen} options={{ headerShown: false, title: "All Chats" }}/>
                 <Drawer.Screen name="Maps" component={MapsScreen} options={{ headerShown: false, title: "Albums Screen" }}/>
                 <Drawer.Screen name="Bulletin" component={BulletinScreen} options={{ headerShown: false, title: "Bulletin" }}/>
                 <Drawer.Screen name="ProfileDetail" component={ProfileDetailScreen} options={{ headerShown: false, title: "Bulletin" }}/>
+                <Drawer.Screen name="ChatDetail" component={ChatDetailScreen} options={{ headerShown: false, title: "Chat Detail" }}/>
             </Drawer.Navigator>}
 
             {!user && 

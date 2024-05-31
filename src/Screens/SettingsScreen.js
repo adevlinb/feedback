@@ -1,11 +1,11 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
 
 // COMPONENTS
-import Header from '../Navigation/Header'
-import BottomNav from '../Navigation/BottomNav'
+import Header from '../Navigation/Header';
+import BottomNav from '../Navigation/BottomNav';
 import SettingsNav from '../Navigation/SettingsNav';
 import { UserInfo } from '../Components/UserInfo';
 

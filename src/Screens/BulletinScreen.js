@@ -1,5 +1,7 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { useContext } from 'react';
+import { User } from '../Context/UserContext';
 
 // COMPONENTS
 import Header from '../Navigation/Header'
@@ -8,6 +10,8 @@ import BottomNav from '../Navigation/BottomNav'
 // APIS
 
 export default function BulletinScreen({ navigation }) {
+    const { user } = useContext(User);
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />

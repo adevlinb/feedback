@@ -1,5 +1,5 @@
 // IMPORTS
-import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
 
@@ -9,21 +9,21 @@ import BottomNav from '../Navigation/BottomNav';
 
 // APIS
 
-export default function NotificationsSetScreen({ navigation }) {
+export default function AllChatsScreen({ navigation }) {
     const { user } = useContext(User);
-    
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Stats</Text>
+                    <Text>All Chats Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Notification Settings</Text>
+                    <Text>All Chats Body</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav navigation={navigation} />
         </SafeAreaView>
     )
 }

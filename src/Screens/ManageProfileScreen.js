@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Pressable, TextInput, ScrollView } from 'react-native'
 import { useContext, useState } from 'react';
 import { User } from '../Context/UserContext';
-import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 // COMPONENTS
 import Header from '../Navigation/Header'
@@ -21,7 +21,6 @@ export default function ManageProfileScreen({ navigation }) {
     const [formData, setFormData] = useState(user);
 	const [editFirstName, setEditFirstName] = useState(false);
 	const [editLastName, setEditLastName] = useState(false);
-	const [editDonationGoal, setEditDonationGoal] = useState(false);
 	const [editPhoneNumber, setEditPhoneNumber] = useState(false);
 	const [hasGalleryPermission, setHasGalleryPermission] = useState(false);
 

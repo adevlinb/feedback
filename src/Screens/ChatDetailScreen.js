@@ -9,20 +9,21 @@ import BottomNav from '../Navigation/BottomNav';
 
 // APIS
 
-export default function ChatScreen({ navigation }) {
+export default function ChatDetailScreen({ navigation }) {
+    const { user } = useContext(User);
 
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Chat Screen</Text>
+                    <Text>Chat Detail Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Chat Body</Text>
+                    <Text>Chat Detail Body</Text>
                 </View>
             </View>
-            <BottomNav navigation />
+            <BottomNav navigation={navigation} />
         </SafeAreaView>
     )
 }
