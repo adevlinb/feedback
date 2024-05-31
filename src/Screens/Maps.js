@@ -13,10 +13,10 @@ export default function About({ navigation }) {
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Albums Screen</Text>
+                    <Text>Maps Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Albums Screen</Text>
+                    <Text>Maps Screen</Text>
                 </View>
             </View>
             <BottomNav navigation={navigation}/>

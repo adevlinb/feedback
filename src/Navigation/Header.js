@@ -1,15 +1,33 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+// IMPORTS
+import { StyleSheet, Text, View, Switch } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import smallLogo from "../../assets/logos/smallLogo.png";
+import { useContext } from 'react';
+import { User } from '../Context/UserContext';
+
+// COMPONENTS
+
+// APIS
 
 export default function Header({ navigation }) {
-  return (
-    <View style={styles.header}>
-        <Ionicons style={styles.iconPlacement} onPress={() => {navigation.toggleDrawer()}} name="menu" size={24} color="black" />
-        <Text>Feedback</Text>
-        <Image style={styles.logoPlacement} source={smallLogo} />
-    </View>
-  )
+    const { twiliteMode, setTwiliteMode } = useContext(User);
+
+
+
+
+    return (
+        <View style={styles.header}>
+            <Ionicons style={styles.iconPlacement} onPress={() => { navigation.toggleDrawer() }} name="menu" size={24} color="black" />
+            <Text>Twilite</Text>
+            <Switch
+                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                thumbColor={twiliteMode ? '#f5dd4b' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={() => setTwiliteMode(!twiliteMode)}
+                value={twiliteMode}
+                style={styles.logoPlacement}
+            />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({

@@ -5,10 +5,9 @@ export default function BottomNav({ navigation }) {
     return (
         <View style={styles.bottomNav}>
             <Pressable onPress={() => navigation.navigate("Grid")}><Text style={styles.footerText} >Grid</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Maps")}><Text style={styles.footerText} >Map</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("Bulletin")}><Text style={styles.footerText} >Bulletin</Text></Pressable>
             <Pressable onPress={() => navigation.navigate("Messages")}><Text style={styles.footerText} >Messages</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Albums")}><Text style={styles.footerText} >Albums</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Feedback")}><Text style={styles.footerText} >Feedback</Text></Pressable>
-            <Image source={FooterIcon} />
         </View>
     )
 }

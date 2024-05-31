@@ -13,10 +13,10 @@ export default function About({ navigation }) {
             <Header navigation={navigation} />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
-                    <Text>Feedback Screen</Text>
+                    <Text>Bulletin Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Feedback Screen</Text>
+                    <Text>Bulletin Screen</Text>
                 </View>
             </View>
             <BottomNav navigation={navigation}/>

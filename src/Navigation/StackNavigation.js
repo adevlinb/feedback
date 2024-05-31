@@ -18,8 +18,8 @@ import HelpScreen from '../Screens/Help';
 import NotificationsSetScreen from '../Screens/NotificationsSetScreen';
 import GridScreen from "../Screens/Grid";
 import MessagesScreen from "../Screens/Chats";
-import AlbumsScreen from "../Screens/Albums";
-import FeedbackScreen from "../Screens/Feedback";
+import MapsScreen from "../Screens/Maps";
+import BulletinScreen from "../Screens/Bulletin";
 
 
 // APIS
@@ -44,8 +44,8 @@ export default function StackNavigation() {
                 <Drawer.Screen name="NotificationSet" component={NotificationsSetScreen} options={{ headerShown: false, title: "Notification Settings" }}/>
                 <Drawer.Screen name="Grid" component={GridScreen} options={{ headerShown: false, title: "Grid Screen" }}/>
                 <Drawer.Screen name="Messages" component={MessagesScreen} options={{ headerShown: false, title: "Messages" }}/>
-                <Drawer.Screen name="Albums" component={AlbumsScreen} options={{ headerShown: false, title: "Albums Screen" }}/>
-                <Drawer.Screen name="Feedback" component={FeedbackScreen} options={{ headerShown: false, title: "Feedback" }}/>
+                <Drawer.Screen name="Maps" component={MapsScreen} options={{ headerShown: false, title: "Albums Screen" }}/>
+                <Drawer.Screen name="Bulletin" component={BulletinScreen} options={{ headerShown: false, title: "Bulletin" }}/>
             </Drawer.Navigator>}
 
             {!user && 

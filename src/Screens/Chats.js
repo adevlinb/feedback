@@ -20,7 +20,7 @@ export default function About({ navigation }) {
                     <Text>Chat Screen</Text>
                 </View>
                 <View style={styles.refresh}>
-                    <Text>Chat Body = all chats (click on a chat to see msgs)</Text>
+                    <Text>Chat Body</Text>
                 </View>
             </View>
             <BottomNav navigation={navigation}/>

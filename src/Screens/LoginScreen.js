@@ -1,6 +1,5 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable } from 'react-native'
-import Logo from "../../assets/logos/mainLogo.png";
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Pressable } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { useContext, useState } from 'react';
 import { User } from '../Context/UserContext';

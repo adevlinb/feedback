@@ -15,6 +15,7 @@ const UserContext = ({ children }) => {
     const [geolocation, setGeolocation] = useState(null);
     const [socketConnection, setSocketConnection] = useState(null);
     const [error, setError] = useState(null);
+    const [twiliteMode, setTwiliteMode] = useState(false);
 
 
     
@@ -61,7 +62,7 @@ const UserContext = ({ children }) => {
 
 
     return (
-        <User.Provider value={{ user, setUser, myChats, setMyChats, selectedChat, setSelectedChat, messages, setMessages, chatUsers, setChatUsers }}>
+        <User.Provider value={{ user, setUser, myChats, setMyChats, selectedChat, setSelectedChat, messages, setMessages, chatUsers, setChatUsers, twiliteMode, setTwiliteMode }}>
             {children}
         </User.Provider>
     )
