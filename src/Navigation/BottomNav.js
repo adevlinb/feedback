@@ -1,6 +1,7 @@
 // IMPORTS
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { AntDesign, MaterialIcons, Feather, Foundation } from '@expo/vector-icons';
 
 // COMPONENTS
 
@@ -12,10 +13,10 @@ export default function BottomNav() {
 
     return (
         <View style={styles.bottomNav}>
-            <Pressable onPress={() => navigation.navigate("Grid")}><Text style={styles.footerText} >Grid</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Maps")}><Text style={styles.footerText} >Map</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Bulletin")}><Text style={styles.footerText} >Bulletin</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("AllChats")}><Text style={styles.footerText} >Messages</Text></Pressable>
+            <Pressable style={styles.pressContainer} onPress={() => navigation.navigate("Grid")}><Feather name="grid" size={24} color="white" /><Text style={styles.labelText} >GRID</Text></Pressable>
+            <Pressable style={styles.pressContainer} onPress={() => navigation.navigate("Maps")}><Feather name="map" size={24} color="white" /><Text style={styles.labelText} >MAP</Text></Pressable>
+            <Pressable style={styles.pressContainer} onPress={() => navigation.navigate("Bulletin")}><Foundation name="list-bullet" size={24} color="white" /><Text style={styles.labelText} >BULLETIN</Text></Pressable>
+            <Pressable style={styles.pressContainer} onPress={() => navigation.navigate("AllChats")}><AntDesign name="message1" size={24} color="white" /><Text style={styles.labelText} >MSGS</Text></Pressable>
         </View>
     )
 }
@@ -36,5 +37,16 @@ const styles = StyleSheet.create({
     footerText: {
         color: "white",
         fontWeight: 500
+    },
+    labelText: {
+        color: "white",
+        fontWeight: 500,
+        fontSize: 10,
+        margin: 5,
+    },
+    pressContainer: {
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
     }
 })
