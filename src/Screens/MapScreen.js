@@ -7,10 +7,10 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function MapScreen({ navigation }) {
+export default function MapScreen({navigation}) {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Maps Screen</Text>
@@ -19,7 +19,7 @@ export default function MapScreen({ navigation }) {
                     <Text>Maps Screen</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

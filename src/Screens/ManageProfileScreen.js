@@ -15,7 +15,7 @@ import * as usersService from "../utilities/users-service";
 import { formatPhoneNumber } from '../utilities/constants';
 
 
-export default function ManageProfileScreen({ navigation }) {
+export default function ManageProfileScreen() {
 	const { user, setUser, userDonations } = useContext(User);
 	const [image, setImage] = useState({ uri: user.profilePic });
     const [formData, setFormData] = useState(user);
@@ -73,7 +73,7 @@ export default function ManageProfileScreen({ navigation }) {
 
 	return (
         <SafeAreaView style={{ flexGrow: 1 }}>
-            <Header navigation={navigation} />
+            <Header />
 			<ScrollView contentContainerStyle={styles.mainContainer}>
 				<UserImagePicker image={image} setImage={setImage} hasGalleryPermission={hasGalleryPermission} setHasGalleryPermission={setHasGalleryPermission}/>
 				<View style={styles.statsContainer}>
@@ -103,7 +103,7 @@ export default function ManageProfileScreen({ navigation }) {
 					<Pressable disabled={checkChanges()} style={checkChanges() ? styles.submitButtonDisabled : styles.submitButton} onPress={submitProfileUpdates}><Text style={{color: "white"}}>Save Changes</Text></Pressable>
 				</View>
 			</ScrollView>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

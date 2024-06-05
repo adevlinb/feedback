@@ -8,9 +8,9 @@ const User = createContext();
 
 const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [myChats, setMyChats] = useState([]);
+    const [myChats, setMyChats] = useState(["item1", "item2", "item3"]);
     const [selectedChat, setSelectedChat] = useState(null);
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState(["hi", "bye"]);
     const [chatUsers, setChatUsers] = useState({});
     const [geolocation, setGeolocation] = useState(null);
     const [socketConnection, setSocketConnection] = useState(null);

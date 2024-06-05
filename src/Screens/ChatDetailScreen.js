@@ -1,7 +1,9 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Pressable } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
+// import { useNavigationState } from '@react-navigation/native';
 
 // COMPONENTS
 import Header from '../Navigation/Header';
@@ -10,20 +12,34 @@ import BottomNav from '../Navigation/BottomNav';
 // APIS
 
 export default function ChatDetailScreen({ navigation }) {
-    const { user } = useContext(User);
+    const { user, messages } = useContext(User);
+
+    function checkNavStack() {
+        console.log(navigation.getState(), "blah blah")
+        // console.log(route.name)
+        // console.log(nav)
+        navigation.goBack()
+    }
 
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Chat Detail Screen</Text>
                 </View>
-                <View style={styles.refresh}>
-                    <Text>Chat Detail Body</Text>
-                </View>
+                <ScrollView>
+                    {messages.map(msg => {
+                        return (
+                            <View key={msg}>
+                                <Text>{msg}</Text>
+                                <Pressable onPress={checkNavStack}><Text>Press here</Text></Pressable>
+                            </View>
+                        )
+                    })}
+                </ScrollView>
             </View>
-            <BottomNav navigation={navigation} />
+            <BottomNav />
         </SafeAreaView>
     )
 }

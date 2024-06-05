@@ -22,9 +22,9 @@ export default function CustomDrawerItems(props) {
     }
 
     return (
-        <DrawerContentScrollView style={styles.mainContainer} contentContainerStyle={styles.contentMainContainer} {...props}>
+        <DrawerContentScrollView style={styles.mainContainer} contentContainerStyle={styles.contentMainContainer} {...props} options={{ headerLeft: ({navigation}) => (<Pressable onPress={() => {navigation.openDrawer()}}><Text>Open</Text></Pressable>)}}>
             <UserInfo />
-            <DrawerItem label="Home" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Home")}/>
+            <DrawerItem label="Grid" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Grid")}/>
             <DrawerItem label="About" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("About")}/>
             <DrawerItem label="Settings" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("Settings")}/>
             <DrawerItem label="TermsOfUse" labelStyle={styles.itemLabels} style={styles.itemStyle} onPress={() => props.navigation.navigate("TermsOfUse")}/>

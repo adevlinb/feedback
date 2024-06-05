@@ -7,10 +7,10 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function TermsOfUseScreen({ navigation }) {
+export default function TermsOfUseScreen() {
 	return (
 		<SafeAreaView style={styles.mainContainer}>
-			<Header navigation={navigation} />
+			<Header />
 			<View style={styles.statsContainer}>
 				<View style={styles.stats}>
 					<Text>Stats</Text>
@@ -19,7 +19,7 @@ export default function TermsOfUseScreen({ navigation }) {
 					<Text>Terms Of Use Screen</Text>
 				</View>
 			</View>
-			<BottomNav navigation={navigation} />
+			<BottomNav />
 		</SafeAreaView>
 	)
 }

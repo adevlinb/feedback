@@ -1,5 +1,5 @@
 // IMPORTS
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Pressable } from 'react-native';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
 
@@ -8,22 +8,40 @@ import Header from '../Navigation/Header';
 import BottomNav from '../Navigation/BottomNav';
 
 // APIS
+import * as ChatAPI from "../utilities/chat-api";
 
 export default function AllChatsScreen({ navigation }) {
-    const { user } = useContext(User);
+    const { user, myChats, setSelectedChat } = useContext(User);
+
+    console.log("all chat screen: ", myChats)
+    console.log("testing all chats")
+
+    async function goToChat(chatId) {
+        console.log("go to chat", navigation.getState())
+        setSelectedChat(chatId)
+        // const chatMessages = await ChatAPI.getMessages(chatId);
+        // setMessages(chatMessages)
+        navigation.navigate("ChatDetail");
+    }
 
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>All Chats Screen</Text>
                 </View>
-                <View style={styles.refresh}>
-                    <Text>All Chats Body</Text>
-                </View>
+                <ScrollView>
+                    {myChats.map(chat => {
+                        return (
+                            <Pressable key={chat} onPress={() => {goToChat(chat)}}>
+                                <Text>{chat}</Text>
+                            </Pressable>
+                        )
+                    })}
+                </ScrollView>
             </View>
-            <BottomNav navigation={navigation} />
+            <BottomNav />
         </SafeAreaView>
     )
 }
@@ -54,7 +72,7 @@ const styles = StyleSheet.create({
         zIndex: 5,
         height: 60,
     },
-    refresh: {
+    body: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",

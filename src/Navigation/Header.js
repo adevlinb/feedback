@@ -3,20 +3,19 @@ import { StyleSheet, Text, View, Switch } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { useContext } from 'react';
 import { User } from '../Context/UserContext';
+import { useNavigation } from '@react-navigation/native';
 
 // COMPONENTS
 
 // APIS
 
-export default function Header({ navigation }) {
+export default function Header() {
     const { twiliteMode, setTwiliteMode } = useContext(User);
-
-
-
+    const navigation = useNavigation();
 
     return (
         <View style={styles.header}>
-            <Ionicons style={styles.iconPlacement} onPress={() => { navigation.toggleDrawer() }} name="menu" size={24} color="black" />
+            <Ionicons style={styles.iconPlacement} onPress={() => { navigation.openDrawer() }} name="menu" size={24} color="black" />
             <Text>Twilite</Text>
             <Switch
                 trackColor={{ false: '#767577', true: '#81b0ff' }}

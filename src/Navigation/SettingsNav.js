@@ -6,7 +6,7 @@ import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 // APIS
 
-export default function SettingsNav({ navigation }) {
+export default function SettingsNav() {
     return (
         <View style={styles.routesContainer}>
             <Pressable onPress={() => navigation.navigate("NotificationSet")} style={styles.linkContainer}>

@@ -1,12 +1,21 @@
+// IMPORTS
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function BottomNav({ navigation }) {
+// COMPONENTS
+
+
+// APIS
+
+export default function BottomNav() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.bottomNav}>
             <Pressable onPress={() => navigation.navigate("Grid")}><Text style={styles.footerText} >Grid</Text></Pressable>
             <Pressable onPress={() => navigation.navigate("Maps")}><Text style={styles.footerText} >Map</Text></Pressable>
             <Pressable onPress={() => navigation.navigate("Bulletin")}><Text style={styles.footerText} >Bulletin</Text></Pressable>
-            <Pressable onPress={() => navigation.navigate("Messages")}><Text style={styles.footerText} >Messages</Text></Pressable>
+            <Pressable onPress={() => navigation.navigate("AllChats")}><Text style={styles.footerText} >Messages</Text></Pressable>
         </View>
     )
 }

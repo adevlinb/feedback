@@ -9,12 +9,12 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function GridScreen({ navigation }) {
+export default function GridScreen({navigation}) {
     const { user } = useContext(User);
     
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Grid Screen</Text>
@@ -23,7 +23,7 @@ export default function GridScreen({ navigation }) {
                     <Text>Grid</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

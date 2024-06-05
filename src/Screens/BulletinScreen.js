@@ -14,7 +14,7 @@ export default function BulletinScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Bulletin Screen</Text>
@@ -23,7 +23,7 @@ export default function BulletinScreen({ navigation }) {
                     <Text>Bulletin Screen</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

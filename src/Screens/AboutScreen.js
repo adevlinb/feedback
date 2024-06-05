@@ -7,10 +7,10 @@ import BottomNav from '../Navigation/BottomNav'
 
 // APIS
 
-export default function AboutScreen({ navigation }) {
+export default function AboutScreen() {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>About Screen</Text>
@@ -21,7 +21,7 @@ export default function AboutScreen({ navigation }) {
                 <Text>We will continuously work to maintain our MVP (minimal viable product) and add new features over time.</Text>
                 <Text>That being said: please leave us feedback with items we can add, adjust, fix, or be better about so we can continue to improve.</Text>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

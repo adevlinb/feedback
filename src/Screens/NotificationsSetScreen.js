@@ -9,12 +9,11 @@ import BottomNav from '../Navigation/BottomNav';
 
 // APIS
 
-export default function NotificationsSetScreen({ navigation }) {
+export default function NotificationsSetScreen() {
     const { user } = useContext(User);
-    
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Stats</Text>
@@ -23,7 +22,7 @@ export default function NotificationsSetScreen({ navigation }) {
                     <Text>Notification Settings</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }

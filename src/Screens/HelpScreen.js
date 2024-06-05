@@ -10,7 +10,7 @@ import BottomNav from '../Navigation/BottomNav'
 export default function HelpScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <Header navigation={navigation} />
+            <Header />
             <View style={styles.statsContainer}>
                 <View style={styles.stats}>
                     <Text>Stats</Text>
@@ -19,7 +19,7 @@ export default function HelpScreen({ navigation }) {
                     <Text>Help/FAQ Screen</Text>
                 </View>
             </View>
-            <BottomNav navigation={navigation}/>
+            <BottomNav />
         </SafeAreaView>
     )
 }
