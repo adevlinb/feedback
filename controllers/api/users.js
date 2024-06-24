@@ -13,7 +13,8 @@ module.exports = {
 
 async function getUser(req, res) {
     try {
-        res.json(req.user);
+        console.log(req, res, "user request", req.user)
+        res.json(req.hasOwnProperty('user') ? req.user : null);
     } catch (err) {
         console.log(err)
         res.status(500).json(err);

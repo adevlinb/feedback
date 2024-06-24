@@ -6,12 +6,25 @@ const session = require('express-session');
 const socketio = require('socket.io');
 const chat = require("./chat");
 
+
+
+
 require('dotenv').config();
 require('./config/database');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
+
+// app.use(function (req, res, next) {
+
+// 	console.log("server console print", req.connection.remoteAddress,
+// 		req.connection.remotePort,
+// 		req.connection.localAddress,
+// 		req.connection.localPort)
+// 	console.log(res, "request body")
+// 	next()
+// })
 
 app.use(require('./config/checkToken'));
 app.use(session({
@@ -32,12 +45,10 @@ const io = socketio(http, {
   });
 chat(io);
 
-
-
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/chat', require('./routes/api/chat'));
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 http.listen(port, function() {
   console.log(`Express app running on port ${port}`);

@@ -25,7 +25,8 @@ export default async function sendRequest(url, method = 'GET', payload = null, p
 		options.headers.Authorization = `Bearer ${token}`;
 	}
 
-	const res = await fetch(`http://localhost:3001${url}`, options);
+	const res = await fetch(`${process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3000'}${url}`, options);
 	if (res.ok) return res.json();
-	throw new Error('Bad Request');
+	if (!res.ok) return "bad request"
+	// throw new Error('Bad Request');
 }

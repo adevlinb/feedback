@@ -16,6 +16,7 @@ export async function updateUser(userData) {
 
 export async function login(credentials) {
 	const token = await usersAPI.login(credentials);
+	console.log(token, "userToken")
 	await SecureStore.setItemAsync('token', token);
 	return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }

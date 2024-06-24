@@ -1,7 +1,7 @@
 import * as chatAPI from "./chat-api";
 import { io } from 'socket.io-client';
 //  "undefined" means the URL will be computed from the `window.location` object
-const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3001';
+const URL = process.env.NODE_ENV === 'production' ? undefined : 'http://localhost:3000';
 export const socket = io(URL);
 
 let user = null;
@@ -25,6 +25,17 @@ export function socketConfig(userPro, geolocation, func1, func2, func3) {
     setMyChats = func2;
     setChatUsers = func3;
 }
+
+socket.on("connect_error", (err) => {
+    // the reason of the error, for example "xhr poll error"
+    console.log(err.message);
+  
+    // some additional description, for example the status code of the initial HTTP response
+    console.log(err.description);
+  
+    // some additional context, for example the XMLHttpRequest object
+    console.log(err.context);
+  });
 
 export function joinRoom(id) {
     user.room = id

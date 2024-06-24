@@ -21,6 +21,7 @@ const UserContext = ({ children }) => {
     
     useEffect(() => {
         async function initialSignIn() {
+            console.log(user, "user should be here")
             const userData = await usersAPI.getUser();
             setUser(userData);
             if (userData) {

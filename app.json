@@ -1,46 +1,65 @@
 {
-	"expo": {
-		"name": "as_if_app",
-		"slug": "as_if_app",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"plugins": [
-			[
-				"expo-location",
-				{
-					"locationAlwaysAndWhenInUsePermission": "Allow Feedback to use your location.",
-					"locationAlwaysPermission": "Allow Feedback to use your location.",
-					"locationWhenInUsePermission": "Allow Feedback to use your location."
-				}
-			]
-		],
-		"icon": "./assets/icon.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/splash.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"assetBundlePatterns": [
-			"**/*"
-		],
-		"ios": {
-			"supportsTablet": true,
-			"infoPlist": {
-				"NSCameraUsageDescription": "This app uses the camera / media library to allow for uploading your profile picture.",
-				"NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Feedback to use your location",
-				"NSLocationAlwaysUsageDescription": "Allow Feedback to use your location",
-				"NSLocationWhenInUseUsageDescription": "Allow Feedback to use your location"
-			}
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		}
-	}
+  "expo": {
+    "name": "as_if_app",
+    "slug": "as_if_app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Feedback to use your location.",
+          "locationAlwaysPermission": "Allow Feedback to use your location.",
+          "locationWhenInUsePermission": "Allow Feedback to use your location."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera / media library to allow for uploading your profile picture.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow Feedback to use your location",
+        "NSLocationAlwaysUsageDescription": "Allow Feedback to use your location",
+        "NSLocationWhenInUseUsageDescription": "Allow Feedback to use your location"
+      },
+      "bundleIdentifier": "as"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
+      ],
+      "package": "com.adbooth420.as_if_app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a021602c-4724-4b43-9270-e3b4ded5df2f"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a021602c-4724-4b43-9270-e3b4ded5df2f"
+    }
+  }
 }
